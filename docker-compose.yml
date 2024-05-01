@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: custom-db_image
+    environment:
+      MYSQL_ROOT_PASSWORD: demosqlpass
+      MYSQL_DATABASE: DevicesDB
+      MYSQL_USER: myusername
+      MYSQL_PASSWORD: demosqlpass
+    ports:
+      - "3306:3306"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
